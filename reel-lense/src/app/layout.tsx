@@ -5,8 +5,8 @@ import "./globals.css";
 import NavBar from '@/components/nav-bar';
 
 export const metadata = {
-  title: 'My Mantine app',
-  description: 'I have followed setup instructions carefully',
+  title: 'Reel Lense',
+  description: 'A website for the Ginger GenAI product.',
 };
 
 export default function RootLayout({
