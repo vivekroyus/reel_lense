@@ -1,103 +1,141 @@
-import Image from "next/image";
+"use client";
+import {
+  Container,
+  Title,
+  Text,
+  Button,
+  Group,
+  Stack,
+  Paper,
+  Image,
+  Card,
+  SimpleGrid,
+  Anchor,
+  Box,
+  Divider,
+} from "@mantine/core";
+import { useState } from "react";
+
+const navLinks = [
+  { label: "Home", href: "#" },
+  { label: "Product", href: "#product" },
+  { label: "About", href: "#about" },
+];
+
+const cards = [
+  {
+    title: "Fast Performance",
+    description: "Experience blazing fast load times and smooth interactions with our platform.",
+  },
+  {
+    title: "Modern UI",
+    description: "Enjoy a sleek, modern interface powered by Mantine and Next.js.",
+  },
+  {
+    title: "Easy Sharing",
+    description: "Share your reels effortlessly with friends and followers.",
+  },
+];
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [active, setActive] = useState("Home");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+  return (
+    <>
+      {/* Navigation Bar */}
+      <Box component="nav" px="md" py="sm" style={{ borderBottom: "1px solid #eee" }}>
+        <Group justify="space-between">
+          <Title order={3} size="1.5rem" fw={900} c="indigo">
+            Reel Lense
+          </Title>
+          <Group gap="lg">
+            {navLinks.map((link) => (
+              <Anchor
+                key={link.label}
+                href={link.href}
+                size="md"
+                c={active === link.label ? "indigo" : "dark"}
+                fw={active === link.label ? 700 : 500}
+                underline="never"
+                onClick={() => setActive(link.label)}
+                style={{ cursor: "pointer" }}
+              >
+                {link.label}
+              </Anchor>
+            ))}
+          </Group>
+        </Group>
+      </Box>
+
+      {/* Hero Section */}
+      <Container size="md" py="xl">
+        <Stack gap="xl" align="center">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/next.svg"
+            alt="Hero"
+            w={180}
+            h={48}
+            mb="md"
+            radius="md"
+            style={{ background: "#f3f3ff" }}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <Title order={1} ta="center" fw={900} size="2.5rem">
+            Welcome to Reel Lense
+          </Title>
+          <Text ta="center" size="lg" c="dimmed" maw={500}>
+            Discover, create, and share stunning reels with the power of Next.js and Mantine.<br />
+            Build your next project with a modern UI and blazing fast performance.
+          </Text>
+          <Button size="lg" radius="xl" color="indigo" mt="md">
+            Try it out
+          </Button>
+        </Stack>
+      </Container>
+
+      {/* Detail Cards Section */}
+      <Container size="md" py="xl">
+        <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="xl">
+          {cards.map((card) => (
+            <Card key={card.title} shadow="md" radius="md" p="lg" withBorder>
+              <Title order={3} size="1.2rem" mb="xs" c="indigo">
+                {card.title}
+              </Title>
+              <Text size="md" c="dimmed">
+                {card.description}
+              </Text>
+            </Card>
+          ))}
+        </SimpleGrid>
+      </Container>
+
+      {/* Footer */}
+      <Divider my="xl" />
+      <Box
+        component="footer"
+        px="md"
+        py="md"
+        style={{
+          background: "#f8f9fa",
+          minHeight: 60,
+        }}
+      >
+        <Group justify="space-between" h="100%">
+          <Text size="sm" c="dimmed">
+            © {new Date().getFullYear()} Reel Lense. All rights reserved.
+          </Text>
+          <Group gap="md">
+            <Anchor href="#" size="sm" c="indigo">
+              Home
+            </Anchor>
+            <Anchor href="#product" size="sm" c="indigo">
+              Product
+            </Anchor>
+            <Anchor href="#about" size="sm" c="indigo">
+              About
+            </Anchor>
+          </Group>
+        </Group>
+      </Box>
+    </>
   );
 }
