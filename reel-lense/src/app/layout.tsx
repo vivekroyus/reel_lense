@@ -4,7 +4,7 @@ import { ColorSchemeScript,  MantineProvider,  mantineHtmlProps } from '@mantine
 import "./globals.css";
 import NavBar from '@/components/nav-bar';
 
-export const metadata = {
+export const metadata = { 
   title: 'Reel Lense',
   description: 'A website for the Ginger GenAI product.',
 };
