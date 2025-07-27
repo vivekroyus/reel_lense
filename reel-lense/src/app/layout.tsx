@@ -1,7 +1,8 @@
 import '@mantine/core/styles.css';
 
-import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
+import { ColorSchemeScript,  MantineProvider,  mantineHtmlProps } from '@mantine/core';
 import "./globals.css";
+import NavBar from '@/components/nav-bar';
 
 export const metadata = {
   title: 'My Mantine app',
@@ -23,6 +24,7 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider theme={{ fontFamily: 'Arvo, sans-serif' }}>
+          <NavBar />
           {children}
         </MantineProvider>
       </body>

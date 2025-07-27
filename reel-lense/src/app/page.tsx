@@ -5,9 +5,6 @@ import {
   Text,
   Button,
   Group,
-  Stack,
-  Paper,
-  Image,
   Card,
   SimpleGrid,
   Anchor,
@@ -15,12 +12,6 @@ import {
   Divider,
 } from "@mantine/core";
 import { useState } from "react";
-
-const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Product", href: "#product" },
-  { label: "About", href: "#about" },
-];
 
 const cards = [
   {
@@ -42,31 +33,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Navigation Bar */}
-      <Box component="nav" px="md" py="sm" style={{ borderBottom: "1px solid #eee" }}>
-        <Group justify="space-between">
-          <Title order={3} size="1.5rem" fw={900} c="indigo">
-            Reel Lense
-          </Title>
-          <Group gap="lg">
-            {navLinks.map((link) => (
-              <Anchor
-                key={link.label}
-                href={link.href}
-                size="md"
-                c={active === link.label ? "indigo" : "dark"}
-                fw={active === link.label ? 700 : 500}
-                underline="never"
-                onClick={() => setActive(link.label)}
-                style={{ cursor: "pointer" }}
-              >
-                {link.label}
-              </Anchor>
-            ))}
-          </Group>
-        </Group>
-      </Box>
-
       {/* Hero Section */}
       <Box
         pos="relative"
