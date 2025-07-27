@@ -68,29 +68,52 @@ export default function Home() {
       </Box>
 
       {/* Hero Section */}
-      <Container size="md" py="xl">
-        <Stack gap="xl" align="center">
-          <Image
-            src="/next.svg"
-            alt="Hero"
-            w={180}
-            h={48}
-            mb="md"
-            radius="md"
-            style={{ background: "#f3f3ff" }}
-          />
-          <Title order={1} ta="center" fw={900} size="2.5rem">
+      <Box
+        pos="relative"
+        style={{
+          height: "100vh",
+          backgroundImage: "url('/filmmaking-bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          overflow: "hidden",
+        }}
+        mb="xl"
+      >
+        <Box
+          pos="absolute"
+          top={0}
+          left={0}
+          w="100%"
+          h="100%"
+          style={{
+            background: "rgba(20, 20, 40, 0.55)",
+            zIndex: 1,
+          }}
+        />
+        <Container
+          size="md"
+          h="100%"
+          style={{
+            position: "relative",
+            zIndex: 2,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: 350,
+          }}
+        >
+          <Title order={1} ta="center" fw={900} size="2.5rem" c="white">
             Welcome to Reel Lense
           </Title>
-          <Text ta="center" size="lg" c="dimmed" maw={500}>
-            Discover, create, and share stunning reels with the power of Next.js and Mantine.<br />
-            Build your next project with a modern UI and blazing fast performance.
+          <Text ta="center" size="lg" c="gray.2" maw={500} mb="md">
+            Written by <b>You</b>, Improved with <b>AI</b>
           </Text>
           <Button size="lg" radius="xl" color="indigo" mt="md">
             Try it out
           </Button>
-        </Stack>
-      </Container>
+        </Container>
+      </Box>
 
       {/* Detail Cards Section */}
       <Container size="md" py="xl">
