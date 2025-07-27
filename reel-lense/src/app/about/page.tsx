@@ -15,7 +15,7 @@ import {
 const team = [
   {
     name: "Alex Director",
-    image: "/about.jpg", // Place image in public/alex.jpg
+    image: "/about/about.jpg", // Place image in public/alex.jpg
     description: "Filmmaker & creative lead. Passionate about storytelling and visual arts.",
     socials: [
       { label: "LinkedIn", url: "https://linkedin.com" },
@@ -24,7 +24,7 @@ const team = [
   },
   {
     name: "Jamie Editor",
-    image: "/about.jpg", // Place image in public/jamie.jpg
+    image: "/about/about.jpg", // Place image in public/jamie.jpg
     description: "Editor & tech enthusiast. Loves crafting seamless video experiences.",
     socials: [
       { label: "LinkedIn", url: "https://linkedin.com/" },
