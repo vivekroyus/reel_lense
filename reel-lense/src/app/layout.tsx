@@ -48,9 +48,6 @@ export default function RootLayout({
                 <Anchor href="/product" size="sm" c="indigo">
                   Product
                 </Anchor>
-                <Anchor href="/about" size="sm" c="indigo">
-                  About
-                </Anchor>
               </Group>
             </Group>
           </Box>
