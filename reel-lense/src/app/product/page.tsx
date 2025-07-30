@@ -10,12 +10,12 @@ export default function ProductPage() {
         </Title>
         <Card shadow="md" radius="md" p="lg" withBorder style={{ maxWidth: 400, width: "100%" }}>
           <Image
-            src="/product/product.jpg" // Place your product image in public/product.jpg
+            src="/product/product.jpg"
             alt="Product"
             radius="md"
             mb="md"
           />
-          <Title order={3} mb="xs">
+          <Title order={3} mb="xs" ta="center" c="indigo">
             Ginger
           </Title>
           <Text size="md" c="dimmed" mb="md">
