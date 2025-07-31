@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <Box
       style={{
-        minHeight: "80vh",
+        minHeight: "100vh",
         background: "linear-gradient(to bottom, #4f8cff 0%,rgb(166, 191, 255) 100%)",
         display: "flex",
         alignItems: "center",
