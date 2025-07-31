@@ -55,9 +55,9 @@ export default function HowItWorks() {
           <Box
             key={step.title}
             style={{
-              minHeight: 340,
-              paddingTop: 48,
-              paddingBottom: 48,
+              minHeight: 250,
+              paddingTop: 12,
+              paddingBottom: 12,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
