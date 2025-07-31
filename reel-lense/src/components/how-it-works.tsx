@@ -25,7 +25,7 @@ export default function HowItWorks() {
   return (
     <Box
       style={{
-        background: "rgb(166, 191, 255)", // Soft blue/white
+        background: "linear-gradient(to bottom, rgb(166, 191, 255) 0%,rgb(137, 168, 245) 100%)", // Soft blue/white
         marginBottom: 40,
         boxShadow: "0 8px 32px rgba(79,140,255,0.07)",
       }}
@@ -37,6 +37,7 @@ export default function HowItWorks() {
         ta="center"
         mb="xl"
         mt={60}
+        c="white"
         style={{
           fontSize: "3.5rem",
           fontWeight: 900,
@@ -90,7 +91,7 @@ export default function HowItWorks() {
                       <Title order={3} style={{ fontSize: "1.5rem", fontWeight: 700 }}>
                         {step.title}
                       </Title>
-                      <Text size="lg" c="dimmed">
+                      <Text size="lg" c="white" style={{ opacity: 0.8 }}>
                         {step.description}
                       </Text>
                     </Stack>
@@ -167,7 +168,7 @@ export default function HowItWorks() {
                       <Title order={3} style={{ fontSize: "1.5rem", fontWeight: 700 }}>
                         {step.title}
                       </Title>
-                      <Text size="lg" c="dimmed">
+                      <Text size="lg" c="white" style={{ opacity: 0.8 }}>
                         {step.description}
                       </Text>
                     </Stack>
