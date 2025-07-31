@@ -25,9 +25,10 @@ export default function HowItWorks() {
   return (
     <Box
       style={{
-        background: "linear-gradient(to bottom, rgb(166, 191, 255) 0%,rgb(137, 168, 245) 100%)", // Soft blue/white
+        background: "linear-gradient(to bottom, rgb(166, 191, 255) 0%,rgb(137, 168, 245) 100%)",
         marginBottom: 40,
         boxShadow: "0 8px 32px rgba(79,140,255,0.07)",
+        position: "relative", // Make this relative for absolute line
       }}
       px={{ base: 0, sm: 32 }}
       py={32}
@@ -47,6 +48,21 @@ export default function HowItWorks() {
       >
         How It Works
       </Title>
+      {/* Vertical connecting line */}
+      
+      <Box
+        style={{
+          position: "absolute",
+          top: 140, // below the title, adjust as needed
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: 4,
+          height: `calc(100% - 180px)`, // adjust for top/bottom padding and title
+          background: "rgb(108, 156, 245)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+      />
       {steps.map((step, idx) => {
         const StepIcon = step.icon;
         const isEven = idx % 2 === 0;
@@ -62,6 +78,7 @@ export default function HowItWorks() {
               alignItems: "center",
               justifyContent: "center",
               position: "relative",
+              zIndex: 2, // Circles above the line
             }}
           >
             {/* Left side */}
@@ -103,17 +120,15 @@ export default function HowItWorks() {
             {/* Center: Numbered Circle */}
             <Box
               style={{
-                position: "relative",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                zIndex: 2,
-                height: "100%",
-                justifyContent: "center",
                 minWidth: 80,
+                zIndex: 2,
+                background: "none",
               }}
             >
-              <Center style={{ zIndex: 2 }}>
+              <Center>
                 <motion.div
                   initial={{ scale: 0.7, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
