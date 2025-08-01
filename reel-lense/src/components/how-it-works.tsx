@@ -48,21 +48,6 @@ export default function HowItWorks() {
       >
         How It Works
       </Title>
-      {/* Vertical connecting line */}
-      
-      <Box
-        style={{
-          position: "absolute",
-          top: 140, // below the title, adjust as needed
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: 4,
-          height: `calc(100% - 180px)`, // adjust for top/bottom padding and title
-          background: "rgb(108, 156, 245)",
-          zIndex: 1,
-          pointerEvents: "none",
-        }}
-      />
       {steps.map((step, idx) => {
         const StepIcon = step.icon;
         const isEven = idx % 2 === 0;
@@ -78,7 +63,7 @@ export default function HowItWorks() {
               alignItems: "center",
               justifyContent: "center",
               position: "relative",
-              zIndex: 2, // Circles above the line
+              zIndex: 2,
             }}
           >
             {/* Left side */}
@@ -117,7 +102,7 @@ export default function HowItWorks() {
               )}
             </Box>
 
-            {/* Center: Numbered Circle */}
+            {/* Center: Numbered Circle with connecting lines */}
             <Box
               style={{
                 display: "flex",
@@ -126,9 +111,25 @@ export default function HowItWorks() {
                 minWidth: 80,
                 zIndex: 2,
                 background: "none",
+                position: "relative",
               }}
             >
-              <Center>
+              {/* Line above (only for steps after the first) */}
+              {idx > 0 && (
+                <Box
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: 4,
+                    height: "calc(50% - 40px)", // 40px is half the circle's height
+                    background: "#6ea8ff",
+                    zIndex: 1,
+                  }}
+                />
+              )}
+              <Center style={{ zIndex: 2 }}>
                 <motion.div
                   initial={{ scale: 0.7, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
@@ -154,6 +155,21 @@ export default function HowItWorks() {
                   </Box>
                 </motion.div>
               </Center>
+              {/* Line below (only for steps before the last) */}
+              {idx < steps.length - 1 && (
+                <Box
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: 4,
+                    height: "calc(50% - 40px)",
+                    background: "#6ea8ff",
+                    zIndex: 1,
+                  }}
+                />
+              )}
             </Box>
 
             {/* Right side */}
